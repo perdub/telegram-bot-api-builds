@@ -1,7 +1,15 @@
+#sources links:
+#https://github.com/tdlib/telegram-bot-api/issues/275#issuecomment-1129957381
+#https://github.com/tdlib/telegram-bot-api/issues/411#issuecomment-1547007735
+
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install make git zlib1g-dev libssl-dev gperf cmake clang libc++-dev libc++abi-dev php-cli
 git clone --recursive https://github.com/tdlib/telegram-bot-api.git
+cd telegram-bot-api/td
+git pull --ff-only
+git reset --hard f755ed8e977b20094471c84b72a328b199d309fc
+cd ../..
 cd telegram-bot-api
 rm -rf build
 mkdir build
