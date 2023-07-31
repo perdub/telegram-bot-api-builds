@@ -49,7 +49,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: build
         run: |
-         ./macOS.sh
+         sudo ./macOS.sh
         shell: bash
       
       - uses: actions/upload-artifact@v3
