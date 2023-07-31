@@ -22,10 +22,9 @@ jobs:
         run: |
           chmod +x ./build.sh
           ./build.sh
-          ls -R
         shell: bash
         
       - uses: actions/upload-artifact@v3
         with:
           name: linuxbinary
-          path: /telegram-bot-api/bin/telegram-bot-api
+          path: telegram-bot-api/bin/telegram-bot-api
