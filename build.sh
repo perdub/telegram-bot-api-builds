@@ -2,7 +2,7 @@
 #https://github.com/tdlib/telegram-bot-api/issues/275#issuecomment-1129957381
 #https://github.com/tdlib/telegram-bot-api/issues/411#issuecomment-1547007735
 
-sudo apt-get update
+: 'sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install make git zlib1g-dev libssl-dev gperf cmake clang libc++-dev libc++abi-dev php-cli
 git clone --recursive https://github.com/tdlib/telegram-bot-api.git
@@ -22,5 +22,19 @@ cd ../build
 cmake --build . --target install
 cd ../td
 php SplitSource.php --undo
+cd ../..
+ls -l telegram-bot-api/bin/telegram-bot-api*
+'
+
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install make git zlib1g-dev libssl-dev gperf cmake clang-14 libc++-14-dev libc++abi-14-dev
+git clone --recursive https://github.com/tdlib/telegram-bot-api.git
+cd telegram-bot-api
+rm -rf build
+mkdir build
+cd build
+CXXFLAGS="-stdlib=libc++" CC=/usr/bin/clang-14 CXX=/usr/bin/clang++-14 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX:PATH=.. ..
+cmake --build . --target install
 cd ../..
 ls -l telegram-bot-api/bin/telegram-bot-api*
